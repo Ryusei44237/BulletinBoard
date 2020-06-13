@@ -8,8 +8,7 @@
 </head>
 <script type="text/javascript">
 
-window.moveTo(screen.width/2-150, screen.height/2-150);
-window.resizeTo(400, 300);
+
 
 var cdoMsg = new ActiveXObject("CDO.Message");
 var schemas = "http://schemas.microsoft.com/cdo/configuration/";
