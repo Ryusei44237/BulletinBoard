@@ -32,8 +32,7 @@ public class DeleteServlet1 extends HttpServlet {
 		//formに入力された検索キー(パラメータ)を取得
 				request.setCharacterEncoding("UTF-8");
 				String Id =request.getParameter("id");
-				DeleteDao I= new Dao.DeleteDao();
-				I.DeleteDao(Id);
+				DeleteDao.delete(Id);
 				System.out.println(Id);
 					//結果画面へフォワード
 				response.sendRedirect("/BulletinBoard/DeleteServlet");

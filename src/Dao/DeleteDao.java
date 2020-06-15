@@ -16,7 +16,7 @@ public class DeleteDao {
 	private static final String pw = "44237";
 	//DELETE文を実行するメソッドのサンプル
 	//引数は削除する学生のID
-	public static void DeleteDao(String Id){
+	public static void delete(String Id){
 		//②アクセスに必要な変数の初期化
 		Connection con = null;
 		PreparedStatement pstmt = null;
