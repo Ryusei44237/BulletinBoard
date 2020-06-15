@@ -47,7 +47,6 @@
 	        <textarea rows="5" cols="64" wrap="OFF" name="Value" id="text" placeholder="投稿文を入力"></textarea>
 	        <input type="submit" name="submit" value="画像を添付して送信"onclick="goServletUpload()" onclick="dotext()">
 			<br><input type="file" name="file"/>
-
 	      </form>
 	      <form action="/BulletinBoard/DeleteServlet" name="key" method="get" align="right" >
 				<input type="submit"value="管理者としてログイン" onclick="manage()">
