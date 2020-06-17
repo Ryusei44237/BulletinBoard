@@ -10,49 +10,32 @@ import Bean.UserBean;
 
 
 public class UserDao {
-	//①DBアクセスに必要な情報の定数を定義
 
-	//接続先DBのURL(jdbc:mysql://[ホスト名orIPアドレス]:[ポート番号]/[データベース名]?serverTimezone=JST)
 	private static final String url = "jdbc:mysql://localhost:3306/BulletinBoard?serverTimezone=JST";
-	//ユーザ
 	private static final String user = "root";
-	//パスワード
 	private static final String pw = "44237";
 
 
-	//INSERT文を実行するメソッドのサンプル
-	//引数は登録したい情報が格納されたBean
-	public static UserBean UserInsert(UserBean s){
-		//②アクセスに必要な変数の初期化
+	public static UserBean UserInsert(UserBean userbean){
+
 		Connection con = null;
 		PreparedStatement pstmt = null;
 
 		try{
-			//③JDBCドライバをロードする
+
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
-			//④データベースと接続する(コネクションを取ってくる)
-			//第1引数→接続先URL
-			//第2引数→ユーザ名
-			//第3引数→パスワード
 			con = DriverManager.getConnection(url, user, pw);
 
-			//⑤SQL文の元を作成する
-			//?をプレースホルダと言います。
-			//後の手順で?に値を設定します。
 			String sql = "INSERT INTO user VALUES(?,?)";
 
-			//⑥SQLを実行するための準備(構文解析)
 			pstmt = con.prepareStatement(sql);
 
-			//⑦プレースホルダに値を設定
-			//第1引数→何番目の?に設定するか(1から数える)
-			//第2引数→?に設定する
-			pstmt.setString(1, s.getName());
-			pstmt.setString(2, s.getPass());
+			pstmt.setString(1, userbean.getName());
+			pstmt.setString(2, userbean.getPass());
 
 			System.out.println("実行できてる");
-			//⑧SQLを実行し、DBから結果を受領する
+
 			int result= pstmt.executeUpdate();
 			System.out.println(result + "件登録されました。");
 
@@ -63,10 +46,9 @@ public class UserDao {
 			System.out.println("DBアクセスに失敗しました。");
 			e.printStackTrace();
 		} finally {
-			//⑨DBとの切断処理
+
 			try {
-				//nullかチェックしないとNullPointerExceptionが
-				//発生してしまうためチェックしている。
+
 				if( pstmt != null){
 					pstmt.close();
 				}
@@ -84,6 +66,6 @@ public class UserDao {
 				e.printStackTrace();
 			}
 		}
-		return s;
+		return userbean;
 	}
 }

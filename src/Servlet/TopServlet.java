@@ -35,7 +35,7 @@ public class TopServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//ArrayListを作ってListの中に全件検索のdaoのメソッドで得た値を代入する
 		ArrayList<BoardBean> Boardlist = new ArrayList<BoardBean>();
-		Boardlist = BoardDao.selectValue();
+		Boardlist = BoardDao.selectAll();
 		request.setAttribute("list", Boardlist);
 
 

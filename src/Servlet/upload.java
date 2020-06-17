@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import Bean.BoardBean;
-import Dao.InsertDao;
+import Dao.BoardDao;
 
 @WebServlet("/upload")
 @MultipartConfig(maxFileSize=10485761) // 1Mまで
@@ -47,7 +47,7 @@ public class upload extends HttpServlet {
 				System.out.println(address);
 				String picture="upload/"+sample;
 				BoardBean s = new BoardBean(id,name,value,mail,create_time,editing_time,address,picture);
-				BoardBean result = InsertDao.InsertPost(s);
+				BoardBean result = BoardDao.insert(s);
 		//取得した値をリクエストスコープへ保存
 		request.setAttribute("BoardBean", result);
 		//インサートサーブレットからURL:TopPageへリダイレクトする

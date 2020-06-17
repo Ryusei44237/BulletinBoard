@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Bean.BoardBean;
-import Dao.UpdateDao;
+import Dao.BoardDao;
 
 /**
  * Servlet implementation class ResultServlet
@@ -43,9 +43,9 @@ public class UpdateServlet extends HttpServlet {
 				String Value =request.getParameter("Value");
 				String editing_time=time2;
 
-				BoardBean s = new BoardBean(Id,Value,editing_time);
+				BoardBean boardbean = new BoardBean(Id,Value,editing_time);
 				//データベースから値を取得
-				BoardBean result = UpdateDao.updateDao(s);
+				BoardBean result = BoardDao.update(boardbean);
 				//取得した値をリクエストスコープへ保存
 				request.setAttribute("BoardBean", result);
 				//結果画面へフォワード

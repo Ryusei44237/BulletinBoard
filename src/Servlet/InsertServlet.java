@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Bean.BoardBean;
-import Dao.InsertDao;
+import Dao.BoardDao;
 
 /**
  * Servlet implementation class TopServlet
@@ -59,8 +59,8 @@ public class InsertServlet extends HttpServlet {
 				String address=request.getRemoteAddr();
 				System.out.println(address);
 				String picture=null;
-				BoardBean s = new BoardBean(id,name,value,mail,create_time,editing_time,address,picture);
-				BoardBean result = InsertDao.InsertPost(s);
+				BoardBean boardbean = new BoardBean(id,name,value,mail,create_time,editing_time,address,picture);
+				BoardBean result = BoardDao.insert(boardbean);
 		//取得した値をリクエストスコープへ保存
 		request.setAttribute("BoardBean", result);
 		//インサートサーブレットからURL:TopPageへリダイレクトする

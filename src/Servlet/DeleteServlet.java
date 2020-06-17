@@ -39,7 +39,7 @@ public class DeleteServlet extends HttpServlet {
 		if(address.equals( "0:0:0:0:0:0:0:1")){
 			//ArrayListを作ってListの中に全件検索のdaoのメソッドで得た値を代入する
 			ArrayList<BoardBean> Boardlist = new ArrayList<BoardBean>();
-			Boardlist = BoardDao.selectValue();
+			Boardlist = BoardDao.selectAll();
 			request.setAttribute("list", Boardlist);
 			//②サーブレットからJSPの呼び出し
 			String view = "/WEB-INF/view/delete.jsp";

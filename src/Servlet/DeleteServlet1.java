@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Dao.DeleteDao;
+import Dao.BoardDao;
 /**
  * Servlet implementation class ResultServlet
  */
@@ -31,9 +31,9 @@ public class DeleteServlet1 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//formに入力された検索キー(パラメータ)を取得
 				request.setCharacterEncoding("UTF-8");
-				String Id =request.getParameter("id");
-				DeleteDao.delete(Id);
-				System.out.println(Id);
+				String id =request.getParameter("id");
+				BoardDao.delete(id);
+				System.out.println(id);
 					//結果画面へフォワード
 				response.sendRedirect("/BulletinBoard/DeleteServlet");
 //localhost:8080 http://192.168.140.128:8080/BulletinBoard/TopPage,http://localhost:8080
