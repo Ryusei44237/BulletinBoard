@@ -26,7 +26,7 @@ public class upload extends HttpServlet {
         String sample = this.getFileName(part);
         System.out.println("C:\\pleiades\\workspace\\BulletinBoard\\WebContent\\upload\\" + sample);
 
-        part.write("C:\\pleiades\\workspace\\BulletinBoard\\WebContent\\upload\\" + sample);
+        part.write("C:\\workspace\\BulletinBoard\\WebContent\\upload\\" + sample);
 		//現在時刻の取得
 		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd/mm/ss");
